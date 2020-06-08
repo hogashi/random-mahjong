@@ -1,0 +1,13 @@
+on:
+  push
+jobs:
+  deno-run:
+    runs-on: ubuntu-16.04
+    name: deno run
+    steps:
+      - uses: actions/checkout@master
+      - name: Setup Deno
+        uses: denolib/setup-deno@master
+        with:
+          deno-version: 1.0.0
+      - run: deno run ./src/random-mahjong.ts
